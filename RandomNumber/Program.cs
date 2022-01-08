@@ -1,12 +1,35 @@
 ﻿Random r = new Random();
-int Number = r.Next(0,300);
 int a = 0;
 int c = 0;
 bool b = false;
 
+int range = 0;
+int clue11 = 0;
+int clue12 = 0;
+int clue21 = 0;
+int clue22 = 0;
+
+Console.WriteLine("Select a range");
+range = Convert.ToInt32(Console.ReadLine());
+
+int Number = r.Next(1, range);
+
+Console.WriteLine("Choose plus");
+clue11 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Choose minus");
+clue12 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Choose plus");
+clue21 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Choose minus");
+clue22 = Convert.ToInt32(Console.ReadLine());
+
+
 while (b == false)
 {
-    Console.WriteLine("Lead a number from 1 to 300");
+    Console.WriteLine("Lead a number from 1 do "+ range);
     a = Convert.ToInt32(Console.ReadLine());
    if ( a == Number)
     {
@@ -31,30 +54,30 @@ while (b == false)
     if (c == 3)
     {
         int g, h;
-        g = Number - 20;
-        h = Number + 20;
+        g = Number - clue12;
+        h = Number + clue11;
         if (g < 0)
         {
             g = 0;
         }
-        if (h > 300)
+        if (h > range)
         {
-            h = 300;
+            h = range;
         }
         Console.WriteLine("The hidden number from " + g + " to " + h);
     }
     if (c == 5)
     {
         int g, h;
-        g = Number - 10;
-        h = Number + 10;
+        g = Number - clue22;
+        h = Number + clue21;
         if (g < 0)
         {
             g = 0;
         }
-        if (h > 300)
+        if (h > range)
         {
-            h = 300;
+            h = range;
         }
         Console.WriteLine("The hidden number from " + g + " to " + h);
     }
